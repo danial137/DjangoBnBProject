@@ -1,7 +1,8 @@
+"use client"
 import { useState } from 'react'
 const UserNav = () => {
 
-    const [isOpen,setIsOpen]=useState()
+    const [isOpen, setIsOpen] = useState(true)
 
     return (
         <div className='p-2 relative inline-block border rounded-full'>
@@ -18,6 +19,15 @@ const UserNav = () => {
                 </svg>
 
             </button>
+
+            {isOpen && (
+
+                <div className='w-[220px] absolute top-[60px] right-0'>
+
+                    admin
+
+                </div>
+            )}
 
         </div>
     )

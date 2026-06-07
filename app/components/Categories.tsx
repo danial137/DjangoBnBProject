@@ -25,7 +25,7 @@ const categories = [
 const Categories = () => {
     return (
         <div className="pt-3 pb-6 overflow-x-auto">
-            <div className="flex items-center gap-32 w-max px-2 ">
+            <div className="flex items-center gap-30 w-max px-2 ">
                 {categories.map(({ label, icon: Icon }) => (
                     <div
                         key={label}

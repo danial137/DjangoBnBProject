@@ -1,6 +1,8 @@
-import React from 'react'
-
+import { useState } from 'react'
 const UserNav = () => {
+
+    const [isOpen,setIsOpen]=useState()
+
     return (
         <div className='p-2 relative inline-block border rounded-full'>
 

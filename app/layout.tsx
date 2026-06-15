@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import Modal from "./components/modals/Modal";
 
 const poppins = Poppins({
   variable: "--font-geist-sans",
@@ -20,6 +21,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const content = (
+    <p>yo</p>
+  )
+
+
   return (
     <html
       lang="en"
@@ -30,6 +37,8 @@ export default function RootLayout({
         <div className="pt-32">
           {children}
         </div>
+
+        <Modal label='modal test' content={content} isOpen={true} />
 
       </body>
     </html>

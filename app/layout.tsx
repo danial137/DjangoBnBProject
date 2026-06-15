@@ -38,7 +38,6 @@ export default function RootLayout({
           {children}
         </div>
 
-        <Modal label='modal test' content={content} isOpen={true} />
 
       </body>
     </html>

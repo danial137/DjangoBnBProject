@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ label, content, isOpen, close }) => {
                 <div className={`translate duration-600 h-full ${showModa ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-10'}  `}>
                     <div className="w-full h-auto rounded-xl relative flex flex-col bg-white ">
                         <header className=" h-[60px] flex items-center p-6 rounded-t justify-center relative border-b ">
-                            <div className="p-3 absolute left-3 hover:gray-300 rounded-full cursor-pointer">
+                            <div className="p-3 absolute left-3 hover:gray-300 rounded-full cursor-pointer" onClick={handleClose}>
 
                                 <svg
                                     fill="none"

@@ -7,6 +7,9 @@ import PropertyListItem from "./PropertyListItem"
 
 export type PropertyType = {
     id: string;
+    title: string;
+    price_per_night: number;
+    image_url:string
 
 }
 
@@ -29,8 +32,8 @@ const PropertyList = () => {
             })
             .catch((error) => {
                 console.log('error', error);
-        })
- }
+            })
+    }
     useEffect(() => {
 
         getProperties();
@@ -42,7 +45,7 @@ const PropertyList = () => {
                     <PropertyListItem key={property.id} property={property} />
                 )
             })}
-        
+
         </>
 
     )

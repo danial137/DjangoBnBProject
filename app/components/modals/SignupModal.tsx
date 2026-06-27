@@ -1,6 +1,6 @@
 "use client"
 
-
+import { useRouter } from "next/navigation"
 
 import { useState } from "react"
 
@@ -12,6 +12,11 @@ const SignupModal = () => {
 
     const signupModal = useSignupModal()
 
+    const router = useRouter()
+    const [email, setEmail] = useState('')
+    const [password1, setPassword1] = useState('');
+    const [password2, setPassword2] = useState('');
+    const [errors, setErrors] = useState<string[]>([])
     const content = (
         <>
 

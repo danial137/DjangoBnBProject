@@ -22,7 +22,7 @@ const SignupModal = () => {
 
 
             <form className="space-y-4">
-                <input placeholder="your email address" type="email" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl " />
+                <input onChange={(e)=>setEmail(e.target.value)} placeholder="your email address" type="email" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl " />
 
 
                 <input placeholder="Your password" type="password" />

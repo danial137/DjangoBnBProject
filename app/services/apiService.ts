@@ -1,56 +1,37 @@
-import { resolve } from "path";
-
 const apiService = {
-  get: async function (url: string): Promise<any> {
-    console.log("get", url);
+  post: async function (url: string, data: any): Promise<any> {
+    console.log("POST DATA =>", JSON.stringify(data));
 
-    return new Promise((resolve, reject) => {
-      fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
-        method: "GET",
-        headers: {
-          'Accept': "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log("Response:", json);
-          resolve(json);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
+      method: "POST",
+
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+
+      body: JSON.stringify(data),
     });
+
+    const json = await response.json();
+
+    console.log("STATUS =>", response.status);
+    console.log("RESPONSE =>", json);
+
+    return json;
   },
 
-
-  post: async function (url: string, data: any): Promise<any>{
-
-
-    console.log('post', url, data);
-
-    return new Promise((resolve, reject) => {
-      fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log("Response:", json);
-          resolve(json);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+  get: async function (url: string): Promise<any> {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     });
 
-  }
-  
-
+    return response.json();
+  },
 };
 
 export default apiService;

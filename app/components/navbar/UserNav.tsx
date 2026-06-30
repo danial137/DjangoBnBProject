@@ -13,9 +13,9 @@ interface UserNavProps {
 
 
 }
-const UserNav: React.FC<UserNavProps> = (
+const UserNav: React.FC<UserNavProps> = ({
     userId
-) => {
+}) => {
 
     const loginModal = useLoginModal()
 

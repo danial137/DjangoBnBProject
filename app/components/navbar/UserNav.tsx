@@ -5,7 +5,15 @@ import MenuLink from './MenuLink'
 import useLoginModal from '@/app/hooks/useLoginModal'
 import useSignupModal from '@/app/hooks/useSignupModal'
 import LogoutButton from '../LogoutButton'
-const UserNav = () => {
+
+interface UserNavProps {
+
+    userId?: string | null
+
+
+
+}
+const UserNav:React.FC<UserNavProps> = () => {
 
     const loginModal = useLoginModal()
 

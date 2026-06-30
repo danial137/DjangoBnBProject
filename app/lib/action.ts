@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { useReducer } from "react";
 
 export async function handleLogin(
   userId: string,
@@ -32,10 +33,16 @@ export async function handleLogin(
 }
 
 export async function resetAuthCookie() {
-  (await cookies()).set('session_userid', '');
+  (await cookies()).set("session_userid", "");
   (await cookies()).set("session_access_token", "");
   (await cookies()).set("session_refresh_token", "");
 }
 
+//
+// Get Data
 
+export async function getUserId() {
+  const userId = (await cookies()).get("session_userid")?.value;
 
+  return userId ? userId : null;
+}

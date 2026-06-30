@@ -3,9 +3,13 @@ import Link from 'next/link'
 import React from 'react'
 import SearchFilters from './SearchFilters'
 import UserNav from './UserNav'
+import { getUserId } from '@/app/lib/action'
 import AddPropertyButton from './AddPropertyButton'
 
-const Navbar = () => {
+const Navbar = async () => {
+
+    const userId = await getUserId()
+
     return (
         <nav className='w-full fixed top-0 left-0  py-6 border-b bg-white z-10 '>
             <div className='max-w-375 mx-auto px-6'>

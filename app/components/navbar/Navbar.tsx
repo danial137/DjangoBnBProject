@@ -28,7 +28,7 @@ const Navbar = async () => {
 
                         <AddPropertyButton />
 
-                        <UserNav />
+                        <UserNav userId={userId}/>
 
                     </div>
                 </div>

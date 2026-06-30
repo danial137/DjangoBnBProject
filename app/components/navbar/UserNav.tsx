@@ -13,7 +13,9 @@ interface UserNavProps {
 
 
 }
-const UserNav:React.FC<UserNavProps> = () => {
+const UserNav: React.FC<UserNavProps> = (
+    userId
+) => {
 
     const loginModal = useLoginModal()
 
@@ -43,30 +45,43 @@ const UserNav:React.FC<UserNavProps> = () => {
 
             {isOpen && (
 
-                <div className='w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer'>
+               
 
-                    <MenuLink
-                        label="Log in"
-                        onClick={() => {
-                            console.log('Clicked button')
-                            setIsOpen(false)
-                            loginModal.open()
+            <div className='w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer'>
+                
+                    {
+                        userId ? (
 
-                        }}
+                            <LogoutButton />
 
-                    />
+                        ) : (
+                            <>
+                                <MenuLink
+                                    label="Log in"
+                                    onClick={() => {
+                                        console.log('Clicked button')
+                                        setIsOpen(false)
+                                        loginModal.open()
 
-                    <MenuLink
-                        label="Sign up"
-                        onClick={() => {
-                            console.log('Clicked button')
-                            setIsOpen(false)
-                            sigupModal.open()
+                                    }}
 
-                        }}
-                    />
+                                />
 
-                    <LogoutButton/>
+                                <MenuLink
+                                    label="Sign up"
+                                    onClick={() => {
+                                        console.log('Clicked button')
+                                        setIsOpen(false)
+                                        sigupModal.open()
+
+                                    }}
+                                />
+                            </>
+                        )}
+
+                    
+
+                   
 
                 </div>
             )}

@@ -32,7 +32,9 @@ export async function handleLogin(
 }
 
 export async function resetAuthCookie() {
-  (await cookies()).set('session_id','')
+  (await cookies()).set('session_userid', '');
+  (await cookies()).set("session_access_token", "");
+  (await cookies()).set("session_refresh_token", "");
 }
 
 

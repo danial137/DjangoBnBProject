@@ -58,6 +58,8 @@ const UserNav = () => {
                         }}
                     />
 
+                    <LogoutButton/>
+
                 </div>
             )}
 

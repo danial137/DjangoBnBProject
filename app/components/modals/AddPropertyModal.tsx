@@ -8,6 +8,8 @@ import useAddPropertyModal from "@/app/hooks/useAddPropertyModal"
 const AddPropertyModal = () => {
   
     const addPropertyModal = useAddPropertyModal()
+    
+    console.log("Modal:", addPropertyModal.isOpen);
 
 
     return (

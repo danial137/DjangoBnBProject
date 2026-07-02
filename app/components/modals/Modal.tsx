@@ -8,6 +8,7 @@ interface ModalProps {
     close: () => void;
     content: React.ReactElement;
     isOpen: boolean;
+    
 }
 
 const Modal: React.FC<ModalProps> = ({ label, content, isOpen, close }) => {

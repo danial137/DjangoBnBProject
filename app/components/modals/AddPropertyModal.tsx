@@ -9,7 +9,14 @@ const AddPropertyModal = () => {
   
     const addPropertyModal = useAddPropertyModal()
     
-    console.log("Modal:", addPropertyModal.isOpen);
+
+    const content = (
+        <>
+        
+            <h2 className="mb-6 text-2xl">Choose category </h2>
+            
+        </>
+    )
 
 
     return (

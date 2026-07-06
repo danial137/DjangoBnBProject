@@ -36,17 +36,19 @@ const Categories: React.FC<CategoriesProps> = ({
 
 
 }) => {
-  return(
-  <>
+  return (
+    <>
 
       <div className="pt-3 cursor-pointer p-6 flex items-center space-x-12">
-      
+
         <div className="pt-3 pb-6 overflow-x-auto">
-          <div className="flex items-center gap-30 w-max px-2 ">
+          <div className="flex items-center gap-30 w-max px-2 " >
             {categories.map(({ label, icon: Icon }) => (
               <div
                 key={label}
                 className="flex flex-col items-center gap-2 pb-2 border-b-2 border-transparent opacity-60 hover:opacity-100 hover:border-gray-800 transition cursor-pointer"
+                onClick={()=>setCategory(label)}
+               
               >
                 <Icon size={20} />
                 <span className="text-xs whitespace-nowrap">{label}</span>
@@ -54,14 +56,14 @@ const Categories: React.FC<CategoriesProps> = ({
             ))}
           </div>
         </div>
-      
+
       </div>
 
 
 
 
     </>
-    
+
   )
 }
 

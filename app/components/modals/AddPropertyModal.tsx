@@ -15,8 +15,10 @@ const AddPropertyModal = () => {
     const [dataCategory, setDataCategory] = useState("");
     const [dataTitle, setDataTitle] = useState("");
     const [dataDescription, setDataDescription] = useState("");
-    const [dataPrice, setDataPrice] = useState(0);
-    const [dataBedrooms,setDataBedrooms]=useState()
+    const [dataPrice, setDataPrice] = useState('');
+    const [dataBedrooms, setDataBedrooms] = useState('')
+    const [dataBathrooms, setDataBathrooms] = useState('')
+    const [dataGuests, setDataGuests] = useState('')
 
     const content = (
         <>
@@ -91,9 +93,60 @@ const AddPropertyModal = () => {
             ) : currentStep == 3 ? (
 
                 <>
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium text-gray-700">
+                            Perice per night
+                        </label>
+
+                        <input
+                            type="number"
+                            value={dataPrice}
+                            onChange={(e) => setDataPrice(e.target.value)}
+                            className="w-full rounded-xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-black focus:ring-2 focus:ring-gray-200"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium text-gray-700">
+                            Bedrooms
+                        </label>
+
+                        <input
+                            type="number"
+                            value={dataBedrooms}
+                            onChange={(e) => setDataBedrooms(e.target.value)}
+                            className="w-full rounded-xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-black focus:ring-2 focus:ring-gray-200"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium text-gray-700">
+                            Bathroom
+                        </label>
+
+                        <input
+                            type="number"
+                            value={dataBathrooms}
+                            onChange={(e) => setDataBathrooms(e.target.value)}
+                            className="w-full rounded-xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-black focus:ring-2 focus:ring-gray-200"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium text-gray-700">
+                            Maximum number of Guest
+                        </label>
+
+                        <input
+                            type="number"
+                            value={dataGuests}
+                            onChange={(e) => setDataGuests(e.target.value)}
+                            className="w-full rounded-xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-black focus:ring-2 focus:ring-gray-200"
+                        />
+                    </div>
                     <CustomButton
                         label="Previous"
-                        className="bg-black hover:bg-gray-800 mb-4"
+                        className="bg-black hover:bg-gray-800 mb-4 mt-4"
                         onClick={() => setCurrentStep(2)}
                     />
 
@@ -101,7 +154,30 @@ const AddPropertyModal = () => {
                         label="Next"
                         onClick={() => setCurrentStep(4)}
                     />
-                </>
+                        </>
+                    ) : currentStep == 4 ? (           
+                            <>
+                                
+                                <h2 className="mb-6 text-2xl"> Location </h2>
+
+                                <div className="pt-3 pb-6 space-y-4"> 
+
+                                    select
+
+                                </div>
+
+                                <CustomButton
+                                    label="Previous"
+                                    className="bg-black hover:bg-gray-800 mb-4 mt-4"
+                                    onClick={() => setCurrentStep(3)}
+                                />
+
+                                <CustomButton
+                                    label="Next"
+                                    onClick={() => setCurrentStep(5)}
+                                />
+                            
+                            </>
             ) : (
                 <p>Details</p>
             )}
